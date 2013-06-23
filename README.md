@@ -13,3 +13,9 @@
   ```
   vagrant up
   ```
+
+## Setup
+
+```
+export ROM_ROOT="/path/to/clones/of/rom/projects"
+```
