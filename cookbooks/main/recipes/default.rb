@@ -52,11 +52,30 @@ execute 'Installing chruby' do
   not_if { File.exist?('/usr/local/bin/chruby') }
 end
 
-[ ['ruby', '1.9.3'], ['ruby', '2.0.0'], ['jruby', '1.7.4'], ['rubinius', '2.0.0'] ].each do |spec|
+# load chruby globally
+
+file "/etc/profile.d/chruby.sh" do
+  owner "root"
+  group "root"
+  mode "0755"
+  action :create_if_missing
+  content "source /usr/local/share/chruby/chruby.sh"
+end
+
+# install all required rubies
+
+rubies = [
+  ['ruby',     '1.9.3'],
+  ['ruby',     '2.0.0'],
+  ['jruby',    '1.7.4'],
+  ['rubinius', '2.0.0-rc1']
+]
+
+rubies.each do |spec|
   ruby_vm, ruby_version = spec
 
   execute("Installing #{ruby_vm} #{ruby_version}") do
     command "ruby-install #{ruby_vm} #{ruby_version}"
-    not_if { !Dir["/opt/rubies/#{ruby_vm}-#{ruby_version}-p*"].empty? }
+    not_if { !Dir["/opt/rubies/#{ruby_vm}-#{ruby_version}*"].empty? }
   end
 end
