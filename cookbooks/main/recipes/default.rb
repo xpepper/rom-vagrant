@@ -1,16 +1,18 @@
 package 'git'
 
+# we don't really need databases at this point
+#
 # sqlite3
-package 'sqlite3'
-package 'libsqlite3-dev'
+#package 'sqlite3'
+#package 'libsqlite3-dev'
 
 # postgres
-package 'postgresql'
-package 'libpq-dev'
+#package 'postgresql'
+#package 'libpq-dev'
 
 # mysql
-package 'mysql-server'
-package 'libmysqlclient-dev'
+#package 'mysql-server'
+#package 'libmysqlclient-dev'
 
 # ruby stuff
 
