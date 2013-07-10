@@ -1,3 +1,4 @@
+package 'wget'
 package 'git'
 
 # we don't really need databases at this point
@@ -18,7 +19,7 @@ package 'git'
 
 # ruby-install
 
-ruby_install_version = '0.1.4'
+ruby_install_version = '0.2.1'
 ruby_install_url     = "https://github.com/postmodern/ruby-install/archive/v#{ruby_install_version}.tar.gz"
 ruby_install_dir     = "ruby-install-#{ruby_install_version}"
 ruby_install_tar     = "#{ruby_install_dir}.tar.gz"
@@ -37,7 +38,7 @@ end
 
 # chruby
 
-chruby_version = '0.3.5'
+chruby_version = '0.3.6'
 chruby_url     = "https://github.com/postmodern/chruby/archive/v#{chruby_version}.tar.gz"
 chruby_dir     = "chruby-#{chruby_version}"
 chruby_tar     = "#{chruby_dir}.tar.gz"
@@ -61,16 +62,19 @@ file "/etc/profile.d/chruby.sh" do
   group "root"
   mode "0755"
   action :create_if_missing
-  content "source /usr/local/share/chruby/chruby.sh"
+  content <<-STRING
+source /usr/local/share/chruby/chruby.sh
+source /usr/local/share/chruby/auto.sh
+STRING
 end
 
 # install all required rubies
 
 rubies = [
   ['ruby',     '1.9.3'],
-  ['ruby',     '2.0.0'],
-  ['jruby',    '1.7.4'],
-  ['rubinius', '2.0.0-rc1']
+  #['ruby',     '2.0.0'],
+  #['jruby',    '1.7.4'],
+  #['rubinius', '2.0.0-rc1']
 ]
 
 rubies.each do |spec|
