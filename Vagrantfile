@@ -8,7 +8,10 @@ Vagrant.configure("2") do |config|
   config.ssh.forward_agent = true
 
   config.vm.synced_folder ENV.fetch('ROM_ROOT'), '/home/vagrant/rom-rb'
-  config.vm.synced_folder './dotfiles', '/home/vagrant/.dotfiles'
+
+  if rom_dotfiles = ENV.fetch('ROM_DOTFILES', false)
+    config.vm.synced_folder rom_dotfiles, '/home/vagrant/.dotfiles'
+  end
 
   config.vm.provision :chef_solo do |chef|
     chef.add_recipe 'main'
