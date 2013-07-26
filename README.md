@@ -14,8 +14,4 @@
 
 ```
 export ROM_ROOT="/path/to/clones/of/rom/projects"
-export ROM_VAGRANT_BOX="ubuntu-12.04"
-
-# optional
-export ROM_DOTFILES="path/to/your/dotfiles"
 ```
