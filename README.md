@@ -2,16 +2,21 @@
 
 - Install vagrant
 
-- Start the vm and open an ssh session
+- Setup rom-rb work directory, start the vm and open an ssh session
 
   ```
-  cd /path/to/rom-vagrant
+  mkdir rom-rb
+  cd rom-rb
+  git clone https://github.com/rom-rb/rom-vagrant.git
+  cd rom-vagrant
   vagrant up
   vagrant ssh
   ```
 
-## Setup
+- dotfiles support (if you want to work inside the VM)
 
-```
-export ROM_ROOT="/path/to/clones/of/rom/projects"
-```
+  ```
+  ln -s /path/to/your/dotfiles /path/to/rom-rb/rom-vagrant/dotfiles
+  ```
+
+  your dotfiles will be available as `/home/vagrant/.dotfiles`
