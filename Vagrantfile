@@ -18,6 +18,8 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.provision :chef_solo do |chef|
+    chef.add_recipe 'apt'
     chef.add_recipe 'main'
+    chef.add_recipe 'tmux'
   end
 end
