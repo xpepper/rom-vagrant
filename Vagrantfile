@@ -6,7 +6,7 @@ DOTFILES = File.join(ROOT, 'dotfiles')
 
 Vagrant.configure("2") do |config|
   config.vm.box = 'ubuntu-12.04'
-  config.vm.box_url = 'https://s3-us-west-2.amazonaws.com/squishy.vagrant-boxes/precise64_squishy_2013-02-09.box'
+  config.vm.box_url = 'http://cloud-images.ubuntu.com/vagrant/precise/20131010/precise-server-cloudimg-amd64-vagrant-disk1.box'
   config.vm.hostname = 'rom-rb'
   config.vbguest.auto_update = true
   config.ssh.forward_agent = true

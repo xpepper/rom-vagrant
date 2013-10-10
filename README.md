@@ -6,9 +6,9 @@
 
   ```
   git clone https://github.com/rom-rb/rom-vagrant.git rom-rb
+  cd rom-vagrant
   git submodule init
   git submodule update
-  cd rom-vagrant
   vagrant up
   vagrant ssh
   ```
