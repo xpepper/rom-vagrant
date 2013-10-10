@@ -5,9 +5,7 @@
 - Setup rom-rb work directory, start the vm and open an ssh session
 
   ```
-  mkdir rom-rb
-  cd rom-rb
-  git clone https://github.com/rom-rb/rom-vagrant.git
+  git clone https://github.com/rom-rb/rom-vagrant.git rom-rb
   git submodule init
   git submodule update
   cd rom-vagrant
