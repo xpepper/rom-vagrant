@@ -8,6 +8,8 @@
   mkdir rom-rb
   cd rom-rb
   git clone https://github.com/rom-rb/rom-vagrant.git
+  git submodule init
+  git submodule update
   cd rom-vagrant
   vagrant up
   vagrant ssh
